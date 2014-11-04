@@ -30,3 +30,62 @@ augroup resCur
         autocmd!
         autocmd BufWinEnter * call ResCur()
 augroup END
+
+set incsearch
+set hlsearch
+set backspace=indent,eol,start
+"set tw=79
+set noexpandtab
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
+colorscheme ron
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+imap jj <Esc>
+nmap <C-R> <C-Y>
+
+set tags=./tags,tags;
+
+" I have pink completion menu..
+hi	Pmenu		ctermbg=DarkGrey	guibg=DarkGrey
+hi	PmenuSel	ctermbg=Blue		guibg=Grey		ctermfg=Black
+hi	PmenuSbar	ctermbg=Gray		guibg=Grey
+hi	PmenuThumb	ctermbg=Black		ctermfg=DarkBlue	guibg=White
+
+au FileType asm,vmasm set syntax=c
+au FileType vim let b:comment_str="\" "
+au FileType c,cpp,verilog_systemverilog let b:comment_str="// "
+au FileType tex,plaintex,bib let b:comment_str="% "
+au FileType vhdl let b:comment_str="-- "
+au FileType python,javascript set ts=4 autoindent shiftwidth=4 shiftwidth=4 expandtab
+au FileType html set ts=2 autoindent shiftwidth=2 shiftwidth=2 expandtab
+au FileType gitcommit set tw=72
+au BufRead *0000-*.patch set filetype=mail
+au FileType asm,vmasm let b:comment_str="@ "
+au FileType asm,vmasm set syntax=c
+
+au FileType c,cpp,verilog_systemverilog let b:comment_str="// "
+noremap <silent> <F8> :s/^/<C-R>=escape(b:comment_str,'\/')<CR>/<CR>:let @/=""<CR>
+noremap <silent> <F9> :s/^\([[:blank:]]*\)<C-R>=escape(b:comment_str,'\/')<CR>/\1/<CR>:let @/=""<CR>
+
+let g:jellybeans_background_color = "0xffffff"
+let g:jellybeans_background_color_256 = "0xffffff"
+let g:solarized_termcolors=256
+colorscheme jellybeans
+
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
