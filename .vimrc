@@ -1,9 +1,8 @@
 syntax on
-set cindent
 set number
 set autoindent 
 set incsearch
-
+filetype indent plugin on
 command -bang W w<bang>
 command -bang Q q<bang>
 command -bang WQ wq<bang>
@@ -36,10 +35,15 @@ set hlsearch
 set backspace=indent,eol,start
 "set tw=79
 set noexpandtab
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
+"set tabstop=8
+"set shiftwidth=8
+"set softtabstop=8
+set ruler
 colorscheme ron
+set autoread
+
+au FileType c,cpp set tw=79 tabstop=8 cindent
+au FileType python,javascript set ts=4 autoindent shiftwidth=4 shiftwidth=4 tabstop=4
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -89,3 +93,6 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+"turn off that annoying beep
+set vb
