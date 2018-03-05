@@ -47,7 +47,8 @@ set autoread
 "au FileType c,cpp set tw=79 tabstop=4
 "au FileType python,javascript set ts=4 autoindent shiftwidth=4 shiftwidth=4 tabstop=4
 
-"set tabstop=8
+set tabstop=8
+set noexpandtab
 "
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -109,7 +110,7 @@ set list
 command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
 
 " Highlighter over 80 characters
-au FileType asm,c,cpp highlight Overlength ctermbg=red ctermfg=white guibg=#592929 
-au FileTYpe asm,c,cpp match Overlength /\%81v.\+/
+"au FileType asm,c,cpp highlight Overlength ctermbg=red ctermfg=white guibg=#592929
+"au FileTYpe asm,c,cpp match Overlength /\%81v.\+/
 
 set clipboard=unnamed

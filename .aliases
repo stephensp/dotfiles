@@ -1,1 +1,19 @@
+alias ll='ls -alF'
+alias l='ls -CF'
+alias la='ls -la'
+alias gv='git remote -v'
+alias gb='git branch'
+alias gc='git checkout'
+alias gs='git status'
+alias gr='git rebase'
+alias gd='git diff'
+alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(by %an %ar)%Creset'"
+alias gsh="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(by %an %ar)%Creset' -25"
+alias tml='tmux ls'
+alias tma='tmux attach -t'
+alias tag='ctags -R .'
+alias setup_sdk='source /opt/Xilinx/SDK/2016.4/settings64.sh'
+alias setup_vivado='source /opt/Xilinx/Vivado/2016.4/settings64.sh'
+alias ssh_fser='ssh -X pstephens@172.16.6.7'
+alias ssh_fpga='ssh -X fpga@172.16.6.7'
 

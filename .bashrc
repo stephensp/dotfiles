@@ -89,8 +89,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -102,3 +102,8 @@ fi
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
+
+set editing-mode vi
+export DISPLAY=localhost:0.0
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin
