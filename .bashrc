@@ -107,3 +107,9 @@ set editing-mode vi
 export DISPLAY=localhost:0.0
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin
+export PATH=$PATH:$HOME/bin
+export XILINXD_LICENSE_FILE=2100@verbapps1
+
+#eval $(ssh-agent -s)
+SSH_ENV="$HOME/.ssh/environment"
+

@@ -27,28 +27,18 @@ function! ResCur()
         endif
 endfunction
 
-augroup resCur
-        autocmd!
-        autocmd BufWinEnter * call ResCur()
-augroup END
-
 set incsearch
 set hlsearch
 set backspace=indent,eol,start
-"set tw=79
-"set noexpandtab
-"set shiftwidth=2
-"set softtabstop=2
-au FileType c,cpp set autoindent
 set ruler
 "colorscheme ron
 set autoread
 
-"au FileType c,cpp set tw=79 tabstop=4
+au FileType c,cpp set tw=79 tabstop=2
 "au FileType python,javascript set ts=4 autoindent shiftwidth=4 shiftwidth=4 tabstop=4
 
-set tabstop=8
-set noexpandtab
+"set tabstop=8
+set expandtab tabstop=2
 "
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -71,8 +61,8 @@ au FileType vim let b:comment_str="\" "
 au FileType c,cpp,verilog_systemverilog let b:comment_str="// "
 au FileType tex,plaintex,bib let b:comment_str="% "
 au FileType vhdl let b:comment_str="-- "
-"au FileType python,javascript set ts=4 autoindent shiftwidth=4 shiftwidth=4 expandtab
-"au FileType html set ts=2 autoindent shiftwidth=2 shiftwidth=2 expandtab
+au FileType python,javascript set ts=4 autoindent shiftwidth=4 shiftwidth=4 expandtab
+au FileType html set ts=2 autoindent shiftwidth=2 shiftwidth=2 expandtab
 au FileType gitcommit set tw=72
 au BufRead *0000-*.patch set filetype=mail
 au FileType asm,vmasm let b:comment_str="@ "
@@ -100,8 +90,6 @@ vnoremap <silent> # :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 set vb
-"set tabstop=4
-"set scrolloff=20
 
 " Showing trailing whitespace
 set listchars=tab:>~,trail:~
@@ -110,7 +98,7 @@ set list
 command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
 
 " Highlighter over 80 characters
-"au FileType asm,c,cpp highlight Overlength ctermbg=red ctermfg=white guibg=#592929
+"au FileType asm,c,cpp highlight Overlength ctermbg=red ctermfg=white guibg=#592929 
 "au FileTYpe asm,c,cpp match Overlength /\%81v.\+/
 
 set clipboard=unnamed
